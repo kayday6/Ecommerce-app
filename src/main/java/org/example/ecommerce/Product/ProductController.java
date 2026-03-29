@@ -11,10 +11,12 @@ import java.util.List;
 
 @Controller
 public class ProductController {
-    private ProductService productService;
+    private final ProductRepository productRepository;
+    private final ProductService productService;
 
-    public ProductController(ProductService productService) {
+    public ProductController(ProductService productService, ProductRepository productRepository) {
         this.productService = productService;
+        this.productRepository = productRepository;
     }
     @GetMapping("/products")
     public String viewProducts(Model model) {
@@ -31,7 +33,7 @@ public class ProductController {
         Product p = new Product();
         p.setName(name);
         p.setPrice(price);
-        productService.save(p);
+        productRepository.save(p);
         var products = productService.findAll();
         model.addAttribute("products", products);
         return "redirect:/products";

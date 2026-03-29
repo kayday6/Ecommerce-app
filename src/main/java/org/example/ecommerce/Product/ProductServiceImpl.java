@@ -8,8 +8,8 @@ import java.util.List;
 
 @Service
 public class ProductServiceImpl implements ProductService {
-    private ProductRepository productRepository;
-    private List<Product> products = new ArrayList<>();
+    private final ProductRepository productRepository;
+    private final List<Product> products = new ArrayList<>();
 @Autowired
     public ProductServiceImpl(ProductRepository productRepository) {
         this.productRepository = productRepository;
@@ -24,20 +24,11 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product findById(int id) {
+    public Product findById(long id) {
         return null;
     }
 
-    @Override
-    public void save(Product product) {
-        productRepository.save(product);
 
-    }
-
-    @Override
-    public void deleteById(int id) {
-
-    }
 
 
 

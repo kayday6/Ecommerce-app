@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class BootstrapData implements CommandLineRunner {
-     private final ProductRepository productRepository;
+     public final ProductRepository productRepository;
 public BootstrapData(ProductRepository productRepository) {
     this.productRepository = productRepository;
 }

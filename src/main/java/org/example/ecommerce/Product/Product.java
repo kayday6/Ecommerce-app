@@ -1,53 +1,33 @@
 package org.example.ecommerce.Product;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import java.io.Serializable;
 
-
+@Setter
+@Getter
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
+
 @Table(name = "Products")
-public class Product  implements Serializable {
+public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    long id;
+    private Long id;
     public String name;
     public double price;
-    public int quantity;
-    public Product(long id, String name, double price, int quantity) {
-        this.id = id;
+    public Product(String name, double price) {
         this.name = name;
         this.price = price;
-        this.quantity = quantity;
 
 
 
-    }
-
-    public Product() {
 
     }
 
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {this.id = id;}
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {this.name = name;}
-
-    public double getPrice() {return price;}
-
-    public void setPrice(double price) {this.price = price;
-    }
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {this.quantity = quantity;}
 }
