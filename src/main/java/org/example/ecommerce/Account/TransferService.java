@@ -34,7 +34,7 @@ public class TransferService {
                 receiver.getAmount().add(amount);
 
         accountRepository.changeAmount(idSender, senderNewAmount);
-
         accountRepository.changeAmount(idReceiver, receiverNewAmount);
+        
     }
 }
